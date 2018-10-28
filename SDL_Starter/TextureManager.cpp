@@ -32,32 +32,32 @@ bool TextureManager::Load(std::string filePath, std::string id, SDL_Renderer * r
 	return false;
 }
 
-void TextureManager::Draw(std::string id, int x, int y, int width, int height, SDL_Renderer * renderer, SDL_RendererFlip flip)
+void TextureManager::Draw(std::string id, Vector2D position, Vector2D size, SDL_Renderer * renderer, SDL_RendererFlip flip)
 {
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
 
 	srcRect.x = 0;
 	srcRect.y = 0;
-	srcRect.w = destRect.w = width;
-	srcRect.h = destRect.h = height;
-	destRect.x = x;
-	destRect.y = y;
+	srcRect.w = destRect.w = size.getX();
+	srcRect.h = destRect.h = size.getY();
+	destRect.x = position.getX();
+	destRect.y = position.getY();
 
 	SDL_RenderCopyEx(renderer, mTextureMap[id], &srcRect, &destRect, 0, 0, flip);
 }
 
-void TextureManager::DrawFrame(std::string id, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer * renderer, SDL_RendererFlip flip)
+void TextureManager::DrawFrame(std::string id, Vector2D position, Vector2D size, int currentRow, int currentFrame, SDL_Renderer * renderer, SDL_RendererFlip flip)
 {
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
 
-	srcRect.x = width * currentFrame;
-	srcRect.y = height * (currentRow - 1);
-	srcRect.w = destRect.w = width;
-	srcRect.h = destRect.h = height;
-	destRect.x = x;
-	destRect.y = y;
+	srcRect.x = size.getX() * currentFrame;
+	srcRect.y = size.getY() * (currentRow - 1);
+	srcRect.w = destRect.w = size.getX();
+	srcRect.h = destRect.h = size.getY();
+	destRect.x = position.getX();
+	destRect.y = position.getY();
 
 	SDL_RenderCopyEx(renderer, mTextureMap[id], &srcRect, &destRect, 0, 0, flip);
 }

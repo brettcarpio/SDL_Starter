@@ -3,15 +3,8 @@
 
 #include "Game.h"
 
-Game::Game()
-{
-
-}
-
-Game::~Game()
-{
-
-}
+Game::Game(){}
+Game::~Game() {}
 
 bool Game::Init(const char * title, int xpos, int ypos, int width, int height, int flags)
 {
@@ -49,6 +42,11 @@ bool Game::Init(const char * title, int xpos, int ypos, int width, int height, i
 		std::cout << "SDL init fail\n";
 		return false; // SDL init fail
 	}
+
+	mSceneMgr = std::make_unique<SceneManager>();
+	mSceneMgr->PushScene(new MenuScene());
+	mSceneMgr->PushScene(new GameScene());
+
 	std::cout << "Init success\n";
 	mRunning = true; // everything inited successfully, start the main loop
 	return true;
@@ -57,11 +55,13 @@ bool Game::Init(const char * title, int xpos, int ypos, int width, int height, i
 void Game::Render()
 {
 	SDL_RenderClear(mRenderer); // clear the renderer to the draw color
+	mSceneMgr->Render(mRenderer);
 	SDL_RenderPresent(mRenderer); // draw to the screen
 }
 
 void Game::Update()
 {
+	mSceneMgr->Update();
 }
 
 void Game::HandleEvents()

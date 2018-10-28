@@ -8,7 +8,7 @@ void MenuScene::Update()
 {
 }
 
-void MenuScene::Render()
+void MenuScene::Render(SDL_Renderer *renderer)
 {
 }
 

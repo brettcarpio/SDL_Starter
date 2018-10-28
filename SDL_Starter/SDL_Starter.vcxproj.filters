@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\SceneManagement">
+      <UniqueIdentifier>{e9c25fbb-1b7e-4549-94b1-b37c20375278}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SceneManagement\Scenes">
+      <UniqueIdentifier>{53e368db-d2bb-4e19-abe5-cce8a6c7dc59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helper">
+      <UniqueIdentifier>{7fc35a6d-b709-47e7-b9ec-afb220b42623}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TextureManagement">
+      <UniqueIdentifier>{64d8ee74-2e9b-4bec-88fb-0f7d88338ac9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject">
+      <UniqueIdentifier>{9a6cefb6-0c3e-46f9-ba83-a16b5f33a05d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject\Sample Object">
+      <UniqueIdentifier>{1fa27d86-28f4-4a08-8b1a-0d63643240d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,31 +39,55 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\SceneManagement</Filter>
     </ClCompile>
     <ClCompile Include="MenuScene.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\SceneManagement\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files\TextureManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>Source Files\SceneManagement\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>Source Files\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\GameObject\Sample Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Source Files\SceneManagement</Filter>
     </ClInclude>
     <ClInclude Include="MenuScene.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\SceneManagement\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Scene.h">
+      <Filter>Source Files\SceneManagement\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Source Files\TextureManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>Source Files\SceneManagement\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>Source Files\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Source Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\GameObject\Sample Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

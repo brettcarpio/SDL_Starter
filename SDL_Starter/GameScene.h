@@ -1,8 +1,10 @@
 #pragma once
+#include <vector>
 
 #include "Scene.h"
+#include "GameObject.h"
 
-class MenuScene : public Scene {
+class GameScene : public Scene {
 public:
 	virtual void Update();
 	virtual void Render(SDL_Renderer *renderer);
@@ -14,4 +16,5 @@ public:
 
 private:
 	static const std::string mID;
+	std::vector<GameObject*> mObjects;
 };
