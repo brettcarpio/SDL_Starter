@@ -17,14 +17,8 @@ public:
 
 	friend std::ostream &operator<<(std::ostream& os, const Vector2D &p);
 
-	inline float getX() const { return m_x; }
-	inline float getY() const { return m_y; }
-	inline void setX(const float x) { m_x = x; }
-	inline void setY(const float y) { m_y = y; }
-	inline void set(const float x, const float y) { m_x = x; m_y = y; }
-	inline void set(Vector2D vec) { m_x = vec.getX(); m_y = vec.getY(); }
+	float x;
+	float y;
 
-private:
-	float m_x;
-	float m_y;
+	inline void set(Vector2D vec) { x = vec.x; y = vec.y; }
 };

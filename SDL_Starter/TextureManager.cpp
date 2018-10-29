@@ -39,10 +39,10 @@ void TextureManager::Draw(std::string id, Vector2D position, Vector2D size, SDL_
 
 	srcRect.x = 0;
 	srcRect.y = 0;
-	srcRect.w = destRect.w = size.getX();
-	srcRect.h = destRect.h = size.getY();
-	destRect.x = position.getX();
-	destRect.y = position.getY();
+	srcRect.w = destRect.w = size.x;
+	srcRect.h = destRect.h = size.y;
+	destRect.x = position.x;
+	destRect.y = position.y;
 
 	SDL_RenderCopyEx(renderer, mTextureMap[id], &srcRect, &destRect, 0, 0, flip);
 }
@@ -52,12 +52,12 @@ void TextureManager::DrawFrame(std::string id, Vector2D position, Vector2D size,
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
 
-	srcRect.x = size.getX() * currentFrame;
-	srcRect.y = size.getY() * (currentRow - 1);
-	srcRect.w = destRect.w = size.getX();
-	srcRect.h = destRect.h = size.getY();
-	destRect.x = position.getX();
-	destRect.y = position.getY();
+	srcRect.x = size.x * currentFrame;
+	srcRect.y = size.y * (currentRow - 1);
+	srcRect.w = destRect.w = size.x;
+	srcRect.h = destRect.h = size.y;
+	destRect.x = position.x;
+	destRect.y = position.y;
 
 	SDL_RenderCopyEx(renderer, mTextureMap[id], &srcRect, &destRect, 0, 0, flip);
 }

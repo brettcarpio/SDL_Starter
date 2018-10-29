@@ -44,8 +44,10 @@ bool Game::Init(const char * title, int xpos, int ypos, int width, int height, i
 	}
 
 	mSceneMgr = std::make_unique<SceneManager>();
-	mSceneMgr->PushScene(new MenuScene());
+	//mSceneMgr->PushScene(new MenuScene());
 	mSceneMgr->PushScene(new GameScene());
+
+	TextureManager::GetInstance()->Load("../Assets/SampleAnim.png", "walk", mRenderer);
 
 	std::cout << "Init success\n";
 	mRunning = true; // everything inited successfully, start the main loop
@@ -55,6 +57,7 @@ bool Game::Init(const char * title, int xpos, int ypos, int width, int height, i
 void Game::Render()
 {
 	SDL_RenderClear(mRenderer); // clear the renderer to the draw color
+	SDL_SetRenderDrawColor(mRenderer, 0, 0, 0, 255);
 	mSceneMgr->Render(mRenderer);
 	SDL_RenderPresent(mRenderer); // draw to the screen
 }

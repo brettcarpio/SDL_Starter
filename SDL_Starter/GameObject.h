@@ -8,10 +8,9 @@
 class LoaderParams
 {
 public:
-	LoaderParams(int x, int y, int width, int height, std::string
-		textureID) : mFramePosition(x, y), mSize(width, height), mTextureID(textureID) {}
+	LoaderParams(Vector2D position, Vector2D size, std::string
+		textureID) : mPosition(position), mSize(size), mTextureID(textureID) {}
 	Vector2D GetSize() const { return mSize; }
-	Vector2D GetFramePos() const { return mFramePosition; }
 	Vector2D GetPos() const { return mPosition; }
 	std::string GetTextureID() const { return mTextureID; }
 private:
@@ -19,7 +18,6 @@ private:
 	int mRow;
 	int mColumn;
 	Vector2D mSize;
-	Vector2D mFramePosition;
 	Vector2D mPosition;
 };
 
@@ -46,7 +44,6 @@ protected:
 	int mRow;
 	int mColumn;
 	Vector2D mSize;
-	Vector2D mFramePosition;
 	Vector2D mPosition;
 
 };
