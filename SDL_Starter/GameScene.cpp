@@ -1,6 +1,9 @@
 #include <iostream>
 
 #include "GameScene.h"
+#include "InputHandler.h"
+#include "MenuScene.h"
+#include "Game.h"
 
 const std::string GameScene::mID = "GAME";
 
@@ -8,12 +11,17 @@ void GameScene::Update()
 {
 	for (GameObject *go : mObjects)
 		go->Update();
+
+	if (InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_0))
+	{
+		Game::Instance()->GetSceneMgr()->ChangeScene(new MenuScene());
+	}
 }
 
-void GameScene::Render(SDL_Renderer *renderer)
+void GameScene::Render()
 {
 	for (GameObject *go : mObjects)
-		go->Draw(renderer);
+		go->Draw();
 }
 
 bool GameScene::OnEnter()

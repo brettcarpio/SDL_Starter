@@ -1,6 +1,6 @@
 #include "TextureManager.h"
 
-TextureManager * TextureManager::mInstance = 0;
+TextureManager *TextureManager::mInstance = 0;
 
 TextureManager::TextureManager()
 {
@@ -12,14 +12,14 @@ TextureManager::~TextureManager()
 
 bool TextureManager::Load(std::string filePath, std::string id, SDL_Renderer * renderer)
 {
-	SDL_Surface* tempSurface = IMG_Load(filePath.c_str());
+	SDL_Surface *tempSurface = IMG_Load(filePath.c_str());
 
 	if (tempSurface == 0)
 	{
 		return false;
 	}
 
-	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, tempSurface);
+	SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, tempSurface);
 
 	SDL_FreeSurface(tempSurface);
 

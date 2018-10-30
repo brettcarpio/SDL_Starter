@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include "TextureManager.h"
+#include "Game.h"
 
 GameObject::GameObject(const LoaderParams *pParams) : Object(pParams)
 {
@@ -10,9 +11,9 @@ GameObject::GameObject(const LoaderParams *pParams) : Object(pParams)
 	mColumn = 1;
 }
 
-void GameObject::Draw(SDL_Renderer *renderer)
+void GameObject::Draw()
 {
-	TextureManager::GetInstance()->DrawFrame(mTextureID, mPosition, mSize, mRow, mColumn, renderer);
+	TextureManager::Instance()->DrawFrame(mTextureID, mPosition, mSize, mRow, mColumn, Game::Instance()->GetRenderer());
 }
 
 void GameObject::Update()

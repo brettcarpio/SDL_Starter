@@ -24,7 +24,7 @@ private:
 class Object 
 {
 public:
-	virtual void Draw(SDL_Renderer *renderer) = 0;
+	virtual void Draw() = 0;
 	virtual void Update() = 0;
 	virtual void Clean() = 0;
 protected:
@@ -36,7 +36,7 @@ class GameObject : public Object
 {
 public:
 	GameObject(const LoaderParams *pParams);
-	virtual void Draw(SDL_Renderer *renderer);
+	virtual void Draw();
 	virtual void Update();
 	virtual void Clean();
 protected:

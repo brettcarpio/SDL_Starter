@@ -9,7 +9,8 @@ public:
 	~Player();
 
 private:
-	void Draw(SDL_Renderer *renderer);
+	void Draw();
 	void Update();
 	void Clean();
+	void HandleInput();
 };

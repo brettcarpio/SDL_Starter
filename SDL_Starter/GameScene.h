@@ -8,7 +8,7 @@
 class GameScene : public Scene {
 public:
 	virtual void Update();
-	virtual void Render(SDL_Renderer *renderer);
+	virtual void Render();
 
 	virtual bool OnEnter();
 	virtual bool OnExit();

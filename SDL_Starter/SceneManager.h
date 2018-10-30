@@ -11,7 +11,7 @@ public:
 	void PopScene();
 
 	void Update();
-	void Render(SDL_Renderer *renderer);
+	void Render();
 
 private:
 	std::vector<Scene*> mScenes;

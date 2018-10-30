@@ -46,10 +46,10 @@ void SceneManager::Update()
 	}
 }
 
-void SceneManager::Render(SDL_Renderer *renderer)
+void SceneManager::Render()
 {
 	if (!mScenes.empty())
 	{
-		mScenes.back()->Render(renderer);
+		mScenes.back()->Render();
 	}
 }

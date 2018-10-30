@@ -1,14 +1,21 @@
 #include <iostream>
 
+#include "InputHandler.h"
 #include "MenuScene.h"
+#include "GameScene.h"
+#include "Game.h"
 
 const std::string MenuScene::mID = "MENU";
 
 void MenuScene::Update()
 {
+	if (InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_1))
+	{
+		Game::Instance()->GetSceneMgr()->ChangeScene(new GameScene());
+	}
 }
 
-void MenuScene::Render(SDL_Renderer *renderer)
+void MenuScene::Render()
 {
 }
 

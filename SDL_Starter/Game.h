@@ -3,15 +3,18 @@
 #include <memory>
 
 #include "SDL.h"
-#include "TextureManager.h"
 #include "SceneManager.h"
-#include "MenuScene.h"
-#include "GameScene.h"
 
 class Game {
 public:
-	Game();
-	~Game();
+	static Game *Instance()
+	{
+		if (mInstance == 0)
+		{
+			mInstance = new Game();
+		}
+		return mInstance;
+	}
 
 	bool Init(const char *title, int xpos, int ypos, int width, int height, int flags);
 
@@ -20,10 +23,17 @@ public:
 	void HandleEvents();
 	void Clean();
 
+	SDL_Renderer *GetRenderer() const;
+	SceneManager *GetSceneMgr() const;
 	bool Running() const;
+	void Quit();
 private:
+	Game();
+	~Game();
+
 	SDL_Window *mWindow;
 	SDL_Renderer *mRenderer;
 	std::unique_ptr<SceneManager> mSceneMgr;
 	bool mRunning;
+	static Game *mInstance;
 };

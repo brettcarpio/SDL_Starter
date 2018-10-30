@@ -31,6 +31,9 @@
     <Filter Include="Source Files\GameObject\Sample Object">
       <UniqueIdentifier>{1fa27d86-28f4-4a08-8b1a-0d63643240d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\InputHandler">
+      <UniqueIdentifier>{262cff1d-8b40-4008-b42b-c4aade90bd11}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,6 +63,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\GameObject\Sample Object</Filter>
     </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Source Files\InputHandler</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -88,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Source Files\GameObject\Sample Object</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Source Files\InputHandler</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

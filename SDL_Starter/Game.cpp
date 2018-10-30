@@ -2,19 +2,32 @@
 #include <string>
 
 #include "Game.h"
+#include "MenuScene.h"
+#include "GameScene.h"
+#include "TextureManager.h"
+#include "InputHandler.h"
 
-Game::Game(){}
-Game::~Game() {}
+Game *Game::mInstance = 0;
 
-bool Game::Init(const char * title, int xpos, int ypos, int width, int height, int flags)
+Game::Game() : mRunning(false), mSceneMgr(nullptr), mRenderer(nullptr), mWindow(nullptr) 
+{
+}
+
+Game::~Game() 
+{
+	mWindow = nullptr;
+	mRenderer = nullptr;
+	mSceneMgr = nullptr;
+}
+
+bool Game::Init(const char *title, int xpos, int ypos, int width, int height, int flags)
 {
 	// attempt to initialize SDL
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
 		std::cout << "SDL init success\n";
 		// init the window
-		mWindow = SDL_CreateWindow(title, xpos, ypos,
-			width, height, flags);
+		mWindow = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
 		if (mWindow != 0) // window init success
 		{
 			std::cout << "Window creation success\n";
@@ -44,10 +57,10 @@ bool Game::Init(const char * title, int xpos, int ypos, int width, int height, i
 	}
 
 	mSceneMgr = std::make_unique<SceneManager>();
-	//mSceneMgr->PushScene(new MenuScene());
+	mSceneMgr->PushScene(new MenuScene());
 	mSceneMgr->PushScene(new GameScene());
 
-	TextureManager::GetInstance()->Load("../Assets/SampleAnim.png", "walk", mRenderer);
+	TextureManager::Instance()->Load("../Assets/SampleAnim.png", "walk", mRenderer);
 
 	std::cout << "Init success\n";
 	mRunning = true; // everything inited successfully, start the main loop
@@ -58,7 +71,7 @@ void Game::Render()
 {
 	SDL_RenderClear(mRenderer); // clear the renderer to the draw color
 	SDL_SetRenderDrawColor(mRenderer, 0, 0, 0, 255);
-	mSceneMgr->Render(mRenderer);
+	mSceneMgr->Render();
 	SDL_RenderPresent(mRenderer); // draw to the screen
 }
 
@@ -69,18 +82,7 @@ void Game::Update()
 
 void Game::HandleEvents()
 {
-	SDL_Event event;
-	if (SDL_PollEvent(&event))
-	{
-		switch (event.type)
-		{
-		case SDL_QUIT:
-			mRunning = false;
-			break;
-		default:
-			break;
-		}
-	}
+	InputHandler::Instance()->Update();
 }
 
 void Game::Clean()
@@ -91,7 +93,22 @@ void Game::Clean()
 	SDL_Quit();
 }
 
+SDL_Renderer *Game::GetRenderer() const
+{
+	return mRenderer;
+}
+
+SceneManager *Game::GetSceneMgr() const
+{
+	return mSceneMgr.get();
+}
+
 bool Game::Running() const
 {
 	return mRunning;
+}
+
+void Game::Quit()
+{
+	mRunning = false;
 }
