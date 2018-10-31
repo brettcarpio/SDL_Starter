@@ -3,7 +3,7 @@
 
 InputHandler *InputHandler::mInstance = 0;
 
-InputHandler::InputHandler()
+InputHandler::InputHandler() : mMousePosition(new Vector2D(0.f, 0.f))
 {
 	for (int i = 0; i < 3; i++)
 		mMouseBtnStates.push_back(false);
@@ -11,6 +11,13 @@ InputHandler::InputHandler()
 
 InputHandler::~InputHandler()
 {
+	delete mMousePosition;
+	mMousePosition = nullptr;
+}
+
+void InputHandler::OnMouseMove(SDL_Event &e)
+{
+	mMousePosition->Set(e.motion.x, e.motion.y);
 }
 
 void InputHandler::OnMouseBtnDown(SDL_Event &e)
@@ -65,6 +72,9 @@ void InputHandler::Update()
 		case SDL_QUIT:
 			Game::Instance()->Quit();
 			break;
+		case SDL_MOUSEMOTION:
+			OnMouseMove(e);
+			break;
 		case SDL_MOUSEBUTTONDOWN:
 			OnMouseBtnDown(e);
 			break;
@@ -85,7 +95,12 @@ void InputHandler::Clean()
 {
 }
 
-bool InputHandler::GetMouseBtnState(int btnNumber)
+Vector2D *InputHandler::GetMousePosition() const
+{
+	return mMousePosition;
+}
+
+bool InputHandler::GetMouseBtnState(int btnNumber) const
 {
 	return mMouseBtnStates[btnNumber];
 }

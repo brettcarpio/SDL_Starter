@@ -16,6 +16,18 @@ void GameScene::Update()
 	{
 		Game::Instance()->GetSceneMgr()->ChangeScene(new MenuScene());
 	}
+	if (InputHandler::Instance()->GetMouseBtnState(0))
+	{
+		std::cout << "Mouse Button 0 pressed!\n";
+	}
+	if (InputHandler::Instance()->GetMouseBtnState(1))
+	{
+		std::cout << "Mouse Button 1 pressed!\n";
+	}
+	if (InputHandler::Instance()->GetMouseBtnState(2))
+	{
+		std::cout << "Mouse Button 2 pressed!\n";
+	}
 }
 
 void GameScene::Render()
@@ -27,7 +39,7 @@ void GameScene::Render()
 bool GameScene::OnEnter()
 {
 	std::cout << "Entering Game Scene\n";
-	mObjects.push_back(new Player(new LoaderParams(Vector2D(100, 50), Vector2D(184, 325), "walk")));
+	mObjects.push_back(new Player(new LoaderParams(Vector2D(228, 50), Vector2D(184, 325), "walk")));
 	return false;
 }
 

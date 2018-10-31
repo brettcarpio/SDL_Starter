@@ -20,5 +20,6 @@ public:
 	float x;
 	float y;
 
-	inline void set(Vector2D vec) { x = vec.x; y = vec.y; }
+	inline void Set(Vector2D vec) { x = vec.x; y = vec.y; }
+	inline void Set(float x, float y) { this->x = x; this->y = y; }
 };

@@ -2,7 +2,6 @@
 #include <vector>
 
 #include "Scene.h"
-#include "GameObject.h"
 #include "Player.h"
 
 class GameScene : public Scene {
@@ -17,5 +16,4 @@ public:
 
 private:
 	static const std::string mID;
-	std::vector<GameObject*> mObjects;
 };

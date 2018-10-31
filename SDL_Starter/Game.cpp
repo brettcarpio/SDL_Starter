@@ -61,6 +61,7 @@ bool Game::Init(const char *title, int xpos, int ypos, int width, int height, in
 	mSceneMgr->PushScene(new GameScene());
 
 	TextureManager::Instance()->Load("../Assets/SampleAnim.png", "walk", mRenderer);
+	TextureManager::Instance()->Load("../Assets/SampleButton.png", "button", mRenderer);
 
 	std::cout << "Init success\n";
 	mRunning = true; // everything inited successfully, start the main loop

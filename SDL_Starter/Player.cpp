@@ -27,16 +27,4 @@ void Player::Clean()
 
 void Player::HandleInput()
 {
-	if (InputHandler::Instance()->GetMouseBtnState(0))
-	{
-		std::cout << "Mouse Button 0 pressed!\n";
-	}
-	if (InputHandler::Instance()->GetMouseBtnState(1))
-	{
-		std::cout << "Mouse Button 1 pressed!\n";
-	}
-	if (InputHandler::Instance()->GetMouseBtnState(2))
-	{
-		std::cout << "Mouse Button 2 pressed!\n";
-	}
 }

@@ -4,11 +4,11 @@
 
 GameObject::GameObject(const LoaderParams *pParams) : Object(pParams)
 {
-	mPosition.set(pParams->GetPos());
-	mSize.set(pParams->GetSize());
+	mPosition.Set(pParams->GetPos());
+	mSize.Set(pParams->GetSize());
 	mTextureID = pParams->GetTextureID();
 	mRow = 1;
-	mColumn = 1;
+	mColumn = 0;
 }
 
 void GameObject::Draw()

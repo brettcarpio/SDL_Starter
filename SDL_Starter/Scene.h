@@ -2,6 +2,7 @@
 #include <string>
 
 #include "SDL_render.h"
+#include "GameObject.h"
 
 class Scene {
 public:
@@ -12,4 +13,7 @@ public:
 	virtual bool OnExit() = 0;
 
 	virtual std::string GetID() const = 0;
+
+protected:
+	std::vector<GameObject*> mObjects;
 };

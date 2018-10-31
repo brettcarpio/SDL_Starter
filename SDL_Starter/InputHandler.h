@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "SDL.h"
+#include "Vector2D.h"
 
 enum MouseButtons
 {
@@ -22,13 +23,15 @@ public:
 	}
 	void Update();
 	void Clean();
-	bool GetMouseBtnState(int btnNumber);
+	Vector2D *GetMousePosition() const;
+	bool GetMouseBtnState(int btnNumber) const;
 	bool IsKeyDown(SDL_Scancode key);
 
 private:
 	InputHandler();
 	~InputHandler();
 
+	void OnMouseMove(SDL_Event &e);
 	void OnMouseBtnDown(SDL_Event &e);
 	void OnMouseBtnUp(SDL_Event &e);
 	void OnKeyDown();
@@ -37,4 +40,5 @@ private:
 	static InputHandler *mInstance;
 	std::vector<bool> mMouseBtnStates;
 	const Uint8 *mKeyStates;
+	Vector2D *mMousePosition;
 };
