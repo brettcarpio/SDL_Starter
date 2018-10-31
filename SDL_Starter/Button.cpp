@@ -1,8 +1,9 @@
 #include "Button.h"
 #include "InputHandler.h"
 
-Button::Button(const LoaderParams *params) : GameObject(params)
+Button::Button(const LoaderParams *params, void(*callback)()) : GameObject(params), mReleased(true), mCallBack(callback)
 {
+	mColumn = MOUSE_OUT;
 }
 
 Button::~Button()
@@ -25,6 +26,8 @@ void Button::Update()
 		if (InputHandler::Instance()->GetMouseBtnState(0))
 		{
 			mColumn = CLICKED;
+			if (mCallBack != nullptr)
+				mCallBack();
 		}
 		else
 		{

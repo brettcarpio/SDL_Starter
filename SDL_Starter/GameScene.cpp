@@ -12,10 +12,11 @@ void GameScene::Update()
 	for (GameObject *go : mObjects)
 		go->Update();
 
-	if (InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_0))
+	if (InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_1))
 	{
 		Game::Instance()->GetSceneMgr()->ChangeScene(new MenuScene());
 	}
+
 	if (InputHandler::Instance()->GetMouseBtnState(0))
 	{
 		std::cout << "Mouse Button 0 pressed!\n";
@@ -40,13 +41,13 @@ bool GameScene::OnEnter()
 {
 	std::cout << "Entering Game Scene\n";
 	mObjects.push_back(new Player(new LoaderParams(Vector2D(228, 50), Vector2D(184, 325), "walk")));
-	return false;
+	return true;
 }
 
 bool GameScene::OnExit()
 {
 	std::cout << "Exiting Game Scene\n";
-	return false;
+	return true;
 }
 
 std::string GameScene::GetID() const

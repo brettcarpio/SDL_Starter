@@ -10,11 +10,14 @@ enum ButtonStates
 class Button : public GameObject
 {
 public:
-	Button(const LoaderParams *params);
+	Button(const LoaderParams *params, void(*callback)());
 	~Button();
 
 private:
 	void Draw();
 	void Update();
 	void Clean();
+
+	void(*mCallBack)();
+	bool mReleased;
 };
