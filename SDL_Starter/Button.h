@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
 
-enum ButtonStates 
+enum ButtonStates
 {
 	MOUSE_OUT = 0,
 	CLICKED = 1
@@ -20,4 +20,5 @@ private:
 
 	void(*mCallBack)();
 	bool mReleased;
+	bool mClicked;
 };

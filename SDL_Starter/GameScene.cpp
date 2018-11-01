@@ -17,17 +17,17 @@ void GameScene::Update()
 		Game::Instance()->GetSceneMgr()->ChangeScene(new MenuScene());
 	}
 
-	if (InputHandler::Instance()->GetMouseBtnState(0))
+	if (InputHandler::Instance()->GetMouseBtnState(MouseButtons::LEFT))
 	{
-		std::cout << "Mouse Button 0 pressed!\n";
+		std::cout << "Left Mouse Button pressed!\n";
 	}
-	if (InputHandler::Instance()->GetMouseBtnState(1))
+	if (InputHandler::Instance()->GetMouseBtnState(MouseButtons::MIDDLE))
 	{
-		std::cout << "Mouse Button 1 pressed!\n";
+		std::cout << "Middle Mouse Button pressed!\n";
 	}
-	if (InputHandler::Instance()->GetMouseBtnState(2))
+	if (InputHandler::Instance()->GetMouseBtnState(MouseButtons::RIGHT))
 	{
-		std::cout << "Mouse Button 2 pressed!\n";
+		std::cout << "Right Mouse Button pressed!\n";
 	}
 }
 

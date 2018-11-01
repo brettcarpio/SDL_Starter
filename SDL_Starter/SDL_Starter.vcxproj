@@ -146,6 +146,7 @@
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="UIObject.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="MenuScene.h" />
