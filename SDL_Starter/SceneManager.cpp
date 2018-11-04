@@ -1,12 +1,12 @@
 #include "SceneManager.h"
 
-void SceneManager::PushScene(Scene *scene) 
+void SceneManager::PushScene(std::shared_ptr<Scene> scene) 
 {
 	mScenes.push_back(scene);
 	mScenes.back()->OnEnter();
 }
 
-void SceneManager::ChangeScene(Scene *scene)
+void SceneManager::ChangeScene(std::shared_ptr<Scene> scene)
 {
 	if (!mScenes.empty())
 	{
@@ -17,7 +17,6 @@ void SceneManager::ChangeScene(Scene *scene)
 
 		if (mScenes.back()->OnExit())
 		{
-			delete mScenes.back();
 			mScenes.pop_back();
 		}
 	}
@@ -32,7 +31,6 @@ void SceneManager::PopScene()
 	{
 		if (mScenes.back()->OnExit())
 		{
-			delete mScenes.back();
 			mScenes.pop_back();
 		}
 	}

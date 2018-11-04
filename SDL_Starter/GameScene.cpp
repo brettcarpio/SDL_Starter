@@ -9,12 +9,12 @@ const std::string GameScene::mID = "GAME";
 
 void GameScene::Update()
 {
-	for (GameObject *go : mObjects)
+	for (std::shared_ptr<GameObject> go : mObjects)
 		go->Update();
 
 	if (InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_1))
 	{
-		Game::Instance()->GetSceneMgr()->ChangeScene(new MenuScene());
+		Game::Instance()->GetSceneMgr()->ChangeScene(std::make_shared<MenuScene>());
 	}
 
 	if (InputHandler::Instance()->GetMouseBtnState(MouseButtons::LEFT))
@@ -33,14 +33,14 @@ void GameScene::Update()
 
 void GameScene::Render()
 {
-	for (GameObject *go : mObjects)
+	for (std::shared_ptr<GameObject> go : mObjects)
 		go->Draw();
 }
 
 bool GameScene::OnEnter()
 {
 	std::cout << "Entering Game Scene\n";
-	mObjects.push_back(new Player(new LoaderParams(Vector2D(228, 50), Vector2D(184, 325), "walk")));
+	mObjects.push_back(std::make_shared<Player>(std::make_shared<LoaderParams>(Vector2D(228, 50), Vector2D(184, 325), "walk")));
 	return true;
 }
 

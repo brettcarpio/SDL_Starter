@@ -6,13 +6,13 @@
 
 class SceneManager {
 public:
-	void PushScene(Scene *scene);
-	void ChangeScene(Scene *scene);
+	void PushScene(std::shared_ptr<Scene> scene);
+	void ChangeScene(std::shared_ptr<Scene> scene);
 	void PopScene();
 
 	void Update();
 	void Render();
 
 private:
-	std::vector<Scene*> mScenes;
+	std::vector<std::shared_ptr<Scene>> mScenes;
 };

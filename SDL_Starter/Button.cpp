@@ -3,7 +3,7 @@
 
 Button::Button(const LoaderParams *params, void(*callback)()) : GameObject(params), mReleased(true), mCallBack(callback), mClicked(false)
 {
-	mColumn = MOUSE_OUT;
+	mColumn = ButtonStates::MOUSE_OUT;
 }
 
 Button::~Button()
@@ -33,15 +33,15 @@ void Button::Update()
 	{
 		if (InputHandler::Instance()->GetMouseBtnState(MouseButtons::LEFT) && mReleased)
 		{
-			mColumn = CLICKED;
+			mColumn = ButtonStates::CLICKED;
 			mReleased = false;
 		}
 		else if (!InputHandler::Instance()->GetMouseBtnState(MouseButtons::LEFT))
 		{
 			mReleased = true;
-			if (mColumn == CLICKED && mReleased)
+			if (mColumn == ButtonStates::CLICKED && mReleased)
 			{
-				mColumn = MOUSE_OUT;
+				mColumn = ButtonStates::MOUSE_OUT;
 				mClicked = true;
 				return;
 			}
@@ -49,7 +49,7 @@ void Button::Update()
 	}
 	else 
 	{
-		mColumn = MOUSE_OUT;
+		mColumn = ButtonStates::MOUSE_OUT;
 	}
 }
 

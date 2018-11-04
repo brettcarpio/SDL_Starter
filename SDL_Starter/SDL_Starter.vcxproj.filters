@@ -110,8 +110,5 @@
     <ClInclude Include="Button.h">
       <Filter>Source Files\GameObject\Sample UI\Sample Button</Filter>
     </ClInclude>
-    <ClInclude Include="UIObject.h">
-      <Filter>Source Files\GameObject\Sample UI</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

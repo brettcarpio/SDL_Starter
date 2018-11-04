@@ -33,5 +33,7 @@ int main(int argc, char* argv[])
 	}
 
 	Game::Instance()->Clean();
+	Game::DeleteInstance();
+
 	return 0;
 }

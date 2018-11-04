@@ -3,7 +3,7 @@
 
 InputHandler *InputHandler::mInstance = 0;
 
-InputHandler::InputHandler() : mMousePosition(new Vector2D(0.f, 0.f))
+InputHandler::InputHandler() : mMousePosition(std::make_shared<Vector2D>(0.f, 0.f))
 {
 	for (int i = 0; i < 3; i++)
 		mMouseBtnStates.push_back(false);
@@ -11,7 +11,6 @@ InputHandler::InputHandler() : mMousePosition(new Vector2D(0.f, 0.f))
 
 InputHandler::~InputHandler()
 {
-	delete mMousePosition;
 	mMousePosition = nullptr;
 }
 

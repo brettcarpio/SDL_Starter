@@ -57,7 +57,7 @@ bool Game::Init(const char *title, int xpos, int ypos, int width, int height, in
 	}
 
 	mSceneMgr = std::make_unique<SceneManager>();
-	mSceneMgr->PushScene(new MenuScene());
+	mSceneMgr->PushScene(std::make_shared<MenuScene>());
 
 	TextureManager::Instance()->Load("../Assets/SampleAnim.png", "walk", mRenderer);
 	TextureManager::Instance()->Load("../Assets/SampleButton.png", "button", mRenderer);

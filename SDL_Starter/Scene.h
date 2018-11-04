@@ -15,5 +15,5 @@ public:
 	virtual std::string GetID() const = 0;
 
 protected:
-	std::vector<GameObject*> mObjects;
+	std::vector<std::shared_ptr<GameObject>> mObjects;
 };

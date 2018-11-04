@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <memory>
 #include "SDL.h"
 #include "Vector2D.h"
 
@@ -15,11 +16,19 @@ class InputHandler
 public:
 	static InputHandler *Instance()
 	{
-		if (mInstance == 0)
+		if (mInstance == nullptr)
 		{
 			mInstance = new InputHandler();
 		}
 		return mInstance;
+	}
+	static void DeleteInstance()
+	{
+		if (mInstance != nullptr)
+		{
+			delete mInstance;
+			mInstance = nullptr;
+		}
 	}
 	void Update();
 	void Clean();
@@ -40,5 +49,5 @@ private:
 	static InputHandler *mInstance;
 	std::vector<bool> mMouseBtnStates;
 	const Uint8 *mKeyStates;
-	Vector2D *mMousePosition;
+	std::shared_ptr<Vector2D> mMousePosition;
 };

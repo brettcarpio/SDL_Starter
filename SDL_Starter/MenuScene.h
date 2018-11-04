@@ -14,5 +14,5 @@ public:
 
 private:
 	static const std::string mID;
-	static void mMenuToGame();
+	static void mMenuToGame();
 };

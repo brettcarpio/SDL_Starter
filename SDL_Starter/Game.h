@@ -9,13 +9,20 @@ class Game {
 public:
 	static Game *Instance()
 	{
-		if (mInstance == 0)
+		if (mInstance == nullptr)
 		{
 			mInstance = new Game();
 		}
 		return mInstance;
 	}
-
+	static void DeleteInstance()
+	{
+		if (mInstance != nullptr)
+		{
+			delete mInstance;
+			mInstance = nullptr;
+		}
+	}
 	bool Init(const char *title, int xpos, int ypos, int width, int height, int flags);
 
 	void Render();
