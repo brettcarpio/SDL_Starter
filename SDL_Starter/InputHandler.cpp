@@ -96,7 +96,7 @@ void InputHandler::Clean()
 
 Vector2D *InputHandler::GetMousePosition() const
 {
-	return mMousePosition;
+	return mMousePosition.get();
 }
 
 bool InputHandler::GetMouseBtnState(int btnNumber) const

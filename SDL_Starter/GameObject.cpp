@@ -2,11 +2,11 @@
 #include "TextureManager.h"
 #include "Game.h"
 
-GameObject::GameObject(const LoaderParams *pParams) : Object(pParams)
+GameObject::GameObject(const std::shared_ptr<LoaderParams> params) : Object(params)
 {
-	mPosition.Set(pParams->GetPos());
-	mSize.Set(pParams->GetSize());
-	mTextureID = pParams->GetTextureID();
+	mPosition.Set(params->GetPos());
+	mSize.Set(params->GetSize());
+	mTextureID = params->GetTextureID();
 	mRow = 1;
 	mColumn = 0;
 }

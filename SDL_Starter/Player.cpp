@@ -2,7 +2,7 @@
 #include "Player.h"
 #include "InputHandler.h"
 
-Player::Player(const LoaderParams *pParams) : GameObject(pParams)
+Player::Player(const std::shared_ptr<LoaderParams> pParams) : GameObject(pParams)
 {
 }
 

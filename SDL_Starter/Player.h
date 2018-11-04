@@ -5,7 +5,7 @@
 class Player : public GameObject
 {
 public:
-	Player(const LoaderParams *pParams);
+	Player(const std::shared_ptr<LoaderParams> pParams);
 	~Player();
 
 private:

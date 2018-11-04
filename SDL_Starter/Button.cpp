@@ -1,7 +1,7 @@
 #include "Button.h"
 #include "InputHandler.h"
 
-Button::Button(const LoaderParams *params, void(*callback)()) : GameObject(params), mReleased(true), mCallBack(callback), mClicked(false)
+Button::Button(const std::shared_ptr<LoaderParams> params, void(*callback)()) : GameObject(params), mReleased(true), mCallBack(callback), mClicked(false)
 {
 	mColumn = ButtonStates::MOUSE_OUT;
 }

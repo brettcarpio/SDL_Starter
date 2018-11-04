@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+#include <memory>
 #include "SDL_render.h"
 #include "GameObject.h"
 

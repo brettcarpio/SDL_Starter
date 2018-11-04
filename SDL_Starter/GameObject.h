@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-
+#include <memory>
 #include "SDL_render.h"
 #include "Vector2D.h"
 
@@ -28,14 +28,14 @@ public:
 	virtual void Update() = 0;
 	virtual void Clean() = 0;
 protected:
-	Object(const LoaderParams *params) {}
+	Object(const std::shared_ptr<LoaderParams> params) {}
 	virtual ~Object() {}
 };
 
 class GameObject : public Object
 {
 public:
-	GameObject(const LoaderParams *pParams);
+	GameObject(const std::shared_ptr<LoaderParams> params);
 	virtual void Draw();
 	virtual void Update();
 	virtual void Clean();

@@ -10,7 +10,7 @@ enum ButtonStates
 class Button : public GameObject
 {
 public:
-	Button(const LoaderParams *params, void(*callback)());
+	Button(const std::shared_ptr<LoaderParams> LoaderParams, void(*callback)());
 	~Button();
 
 private:
